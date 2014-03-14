@@ -24,15 +24,11 @@ function TodoCtrl($scope) {
     });
   };
 
-  $scope.handle_class = function() {
-    var selected_index = form.elements["class_list"].selected_index;
-    if (selected_index > 0) {
-      var selected_option_value = form.elements["class_list"].options[selected_index].value;
-      var selected_option_text = form.elements["class_list"].options[selected_index].text;
-    }
-    else {
-      alert("please select a class from the list");
-    };
+  it('should select Greetings!', function() {
+  expect(element(by.id('greet')).getAttribute('selected')).toBeFalsy();
+  element(by.model('selected')).click();
+  expect(element(by.id('greet')).getAttribute('selected')).toBeTruthy();
+  });
 
-  }
+
 }

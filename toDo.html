@@ -8,6 +8,7 @@
 
   <body>
     <h2>Todo</h2>
+    
     <div ng-controller="TodoCtrl">
       <span>{{remaining()}} of {{todos.length}} remaining</span>
       [ <a href="" ng-click="archive()">archive</a> ]
@@ -23,6 +24,14 @@
         <input class="btn-primary" type="submit" value="add">
       </form>
     </div>
+
+    Check me to select: <input type="checkbox" ng-model="selected"><br/>
+    <select>
+     <option>Hello!</option>
+     <option id="greet" ng-selected="selected">Greetings!</option>
+    </select>
+
+
     
 
   </body> 
