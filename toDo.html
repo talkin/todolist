@@ -8,7 +8,6 @@
 
   <body>
     <h2>Todo</h2>
-    
     <div ng-controller="TodoCtrl">
       <span>{{remaining()}} of {{todos.length}} remaining</span>
       [ <a href="" ng-click="archive()">archive</a> ]
@@ -18,21 +17,26 @@
           <span class="done-{{todo.done}}">{{todo.text}}</span>
         </li>
       </ul>
+
       <form ng-submit="addTodo()">
         <input type="text" ng-model="todoText"  size="30"
                placeholder="add new todo here">
         <input class="btn-primary" type="submit" value="add">
       </form>
+
+
+
+      <span class = "choose">        
+       <select ng-model="class" ng-options="c.classes for c in classfy">
+         <option value=""> -- choose class --</option>
+       </select>
+      </span>
+
+
+      
+
     </div>
-
-    Check me to select: <input type="checkbox" ng-model="selected"><br/>
-    <select>
-     <option>Hello!</option>
-     <option id="greet" ng-selected="selected">Greetings!</option>
-    </select>
-
-
-    
+  
 
   </body> 
 
