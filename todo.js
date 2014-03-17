@@ -1,5 +1,5 @@
 function TodoCtrl($scope) {
-  $scope.todos = [
+  $scope.todos_study = [
     {text:'learn angular', done:true},
     {text:'build an angular app', done:false}];
 
