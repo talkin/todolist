@@ -2,9 +2,15 @@ function TodoCtrl($scope) {
   $scope.todos = [
     {text:'learn angular', done:true},
     {text:'build an angular app', done:false}];
+
+  $scope.todos_enjoy = [
+    {text:'game', done:false}];  
+
+  $scope.items = ['study','enjoy'];
+  $scope.selection = $scope.items[0];
  
   $scope.addTodo = function() {
-    $scope.todos.push({text:$scope.todoText, done:false});
+    $scope.todos.push({text:$scope.todoText , done:false});
     $scope.todoText = '';
   };
  
