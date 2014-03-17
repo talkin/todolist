@@ -8,44 +8,41 @@
 
   <body>
     <h1>Todo</h1>
-    <div ng-controller="TodoCtrl" class="study">
+    <div ng-controller="TodoCtrl" ng-switch on = "selection">
     
       <span>
         <h2>Study</h2>
         <hr>
-        {{remaining()}} of {{todos.length}} remaining</span>
-      [ <a href="" ng-click="archive()">archive</a> ]
-      <ul class="unstyled">
-        <li ng-repeat="todo in todos_study">
-          <input type="checkbox" ng-model="todo.done">
-          <span class="done-{{todo.done}}">{{todo.text}}</span>
-        </li>
-      </ul>
+        {{remaining()}} of {{todos_study.length}} remaining</span>
+        [ <a href="" ng-click="archive()">archive</a> ]
+        <ul class="unstyled">
+         <li ng-repeat="todo in todos_study">
+           <input type="checkbox" ng-model="todo.done">
+           <span class="done-{{todo.done}}">{{todo.text}}</span>
+         </li>
+        </ul>
+        <hr>
+       
+      <span>    
+        <h2>Enjoy</h2>
+        {{remaining()}} of {{todos_enjoy.length}} remaining</span>
+        [ <a href="" ng-click="archive()">archive</a> ]
+        <ul class="unstyled">
+         <li ng-repeat="todo in todos_enjoy">
+           <input type="checkbox" ng-model="todo.done">
+           <span class="done-{{todo.done}}">{{todo.text}}</span>
+         </li>
+        </ul>    
+      <hr>
 
-       <hr>
-    <span>    
-    <h2>Enjoy</h2>
-    {{remaining()}} of {{todos.length}} remaining</span>
-    [ <a href="" ng-click="archive()">archive</a> ]
-    <ul class="unstyled">
-      <li ng-repeat="todo in todos_enjoy">
-       <input type="checkbox" ng-model="todo.done">
-       <span class="done-{{todo.done}}">{{todo.text}}</span>
-      </li>
-     </ul>    
-     <hr>
+      <select ng-model="selection" ng-options="item for item in items"></select>
+      <tt>selection={{selection}}</tt>
 
       <form ng-submit="addTodo()">
         <input type="text" ng-model="todoText"  size="30"
                placeholder="add new todo here">
         <input class="btn-primary" type="submit" value="add">
-      </form>
-
-      <span class = "choose">        
-       <select ng-model="class" ng-options="c.classes for c in classfy">
-         <option value=""> -- choose class -- </option>
-       </select>
-      </span>      
+      </form>    
 
     </div>  
   </body> 

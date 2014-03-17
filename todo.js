@@ -10,16 +10,31 @@ function TodoCtrl($scope) {
   $scope.selection = $scope.items[0];
  
   $scope.addTodo = function() {
-    $scope.todos.push({text:$scope.todoText , done:false});
+    if ($scope.selection == 'study') {
+      $scope.todos_study.push({text:$scope.todoText, done:false});
+    }
+    else if ($scope.selection == 'enjoy') {
+      $scope.todos_enjoy.push({text:$scope.todoText, done:false})
+    };
+    
     $scope.todoText = '';
   };
  
   $scope.remaining = function() {
-    var count = 0;
-    angular.forEach($scope.todos, function(todo) {
-      count += todo.done ? 0 : 1;
-    });
-    return count;
+    var count_study = 0,count_enjoy = 0;
+    if ($scope.selection == 'study') {
+      angular.forEach($scope.todos_study, function(todo) {
+        count_study += todo.done ? 0 : 1;
+      });            
+      return count_study;
+    }
+    else if ($scope.selection == 'enjoy') {
+      angular.forEach($scope.todos_enjoy, function(todo) {
+        count_enjoy += todo.done ? 0 : 1;
+      });          
+      return count_enjoy;
+    };
+    
   };
  
   $scope.archive = function() {
@@ -29,11 +44,5 @@ function TodoCtrl($scope) {
       if (!todo.done) $scope.todos.push(todo);
     });
   };
-
-  $scope.classfy = [
-    {classes:'study'},
-    {classes:'enjoy'}
-  ];
-
 
 }
