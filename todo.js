@@ -20,28 +20,35 @@ function TodoCtrl($scope) {
     $scope.todoText = '';
   };
  
-  $scope.remaining = function() {
-    var count_study = 0,count_enjoy = 0;
-    if ($scope.selection == 'study') {
-      angular.forEach($scope.todos_study, function(todo) {
+  $scope.remaining_study = function() {
+    var count_study = 0;    
+    angular.forEach($scope.todos_study, function(todo) {
         count_study += todo.done ? 0 : 1;
-      });            
-      return count_study;
-    }
-    else if ($scope.selection == 'enjoy') {
-      angular.forEach($scope.todos_enjoy, function(todo) {
+    });            
+      return count_study;    
+  };
+
+  $scope.remaining_enjoy = function() {
+    var count_enjoy = 0;    
+    angular.forEach($scope.todos_enjoy, function(todo) {
         count_enjoy += todo.done ? 0 : 1;
-      });          
-      return count_enjoy;
-    };
-    
+    });            
+      return count_enjoy;    
   };
  
-  $scope.archive = function() {
-    var oldTodos = $scope.todos;
-    $scope.todos = [];
-    angular.forEach(oldTodos, function(todo) {
-      if (!todo.done) $scope.todos.push(todo);
+  $scope.archive_study = function() {
+    var oldTodos_study = $scope.todos_study;
+    $scope.todos_study = [];
+    angular.forEach(oldTodos_study, function(todo) {
+      if (!todo.done) $scope.todos_study.push(todo);
+    });
+  };
+
+    $scope.archive_enjoy = function() {
+    var oldTodos_enjoy = $scope.todos_enjoy;
+    $scope.todos_enjoy = [];
+    angular.forEach(oldTodos_enjoy, function(todo) {
+      if (!todo.done) $scope.todos_enjoy.push(todo);
     });
   };
 
